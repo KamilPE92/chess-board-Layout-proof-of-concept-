@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+img {
+	max-width: 100%;
+	display: block;
+}
+
+.wrapper {
+	max-width: 90rem;
+	margin: 0 auto;
+}
+
+.image-container {
+	min-height: 50vh;
+	background-position: center center;
+	background-size: cover;
+	grid-row: 1/2;
+}
+
+.image-container.Bill {
+	background-image: url(/assets/bill-clinton-910173_1280.jpg);
+}
+
+.image-container.Barack {
+	background-image: url(/assets/obama-356133_1280.jpg);
+}
+.row {
+	display: grid;
+}
+.text-container {
+	margin-inline: 1rem;
+	margin-block: 1rem;
+}
+
+@media (min-width: 768px) {
+	.row {
+		grid-template-columns:
+			minmax(1rem, 1fr) minmax(0, 45rem) minmax(0, 45rem)
+			minmax(1rem, 1fr);
+	}
+	.text-container {
+		grid-column: 2/3;
+	}
+	.image-container {
+		grid-column: 3 /-1;
+	}
+	.row:nth-child(even) .text-container {
+		grid-column: 3/4; /* tekst na prawo */
+	}
+	.row:nth-child(even) .image-container {
+		grid-column: 1/3; /* obrazek na lewo */
+	}
+}
